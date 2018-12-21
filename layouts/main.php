@@ -6,11 +6,11 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use app\themes\gentelella\components\Sidebars;
-use app\themes\gentelella\components\MenuTop;
 use app\components\menu\MenuContent;
 use app\components\menu\MenuOption;
-use app\themes\gentelella\components\MenuFooter;
+use themes\gentelella\components\Sidebars;
+use themes\gentelella\components\MenuTop;
+use themes\gentelella\components\MenuFooter;
 use app\components\Utility;
 ?>
 

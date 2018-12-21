@@ -8,7 +8,7 @@ use yii\helpers\Html;
 use yii\helpers\Url;
 
 \yiister\gentelella\assets\Asset::register($this);
-\app\themes\gentelella\assets\CustomAsset::register($this);
+\themes\gentelella\assets\CustomAsset::register($this);
 
 $this->beginPage();?>
 <!DOCTYPE html>

@@ -1,5 +1,5 @@
 <?php
-namespace app\themes\gentelella\components;
+namespace themes\gentelella\components;
 
 class SidebarMenu extends \yii\base\Widget
 {

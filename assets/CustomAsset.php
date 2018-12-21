@@ -1,9 +1,9 @@
 <?php
-namespace app\themes\gentelella\assets;
+namespace themes\gentelella\assets;
 
 class CustomAsset extends \yii\web\AssetBundle
 {
-	public $sourcePath = '@app/themes/gentelella';
+	public $sourcePath = '@themes/gentelella';
 	
 	public $css = [
 		'css/custom.css',

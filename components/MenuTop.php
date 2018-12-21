@@ -1,5 +1,5 @@
 <?php
-namespace app\themes\gentelella\components;
+namespace themes\gentelella\components;
 
 class MenuTop extends \yii\base\Widget
 {

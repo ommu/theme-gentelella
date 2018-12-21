@@ -3,7 +3,7 @@
     <div class="menu_section active">
         <h3>General</h3>
         <?=
-        \app\themes\gentelella\components\Menu::widget(
+        \themes\gentelella\components\Menu::widget(
             ['items' => $this->context->menuItems]
             /*
             [

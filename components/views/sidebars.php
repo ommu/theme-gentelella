@@ -1,9 +1,9 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
-use \mdm\admin\components\MenuHelper;
-use \app\themes\gentelella\components\SidebarMenu;
-use \app\themes\gentelella\components\SidebarSetting;
+use mdm\admin\components\MenuHelper;
+use themes\gentelella\components\SidebarMenu;
+use themes\gentelella\components\SidebarSetting;
 
 ?>
 <?php /* sidebar navigation */?>
