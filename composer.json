@@ -1,0 +1,45 @@
+{
+	"name": "ommu/gentelella",
+	"description": "Gentelella - Free Bootstrap Admin Template",
+	"keywords": [
+		"theme",
+		"backend",
+		"gentelella",
+		"ommu",
+		"ommu-platform"
+	],
+	"homepage": "https://github.com/ommu/theme-gentelella",
+	"type": "ommu-theme",
+	"license": "Apache-2.0",
+	"support": {
+		"issues": "https://github.com/ommu/theme-gentelella/issues",
+		"wiki": "https://github.com/ommu/theme-gentelella/wiki",
+		"source": "https://github.com/ommu/theme-gentelella"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ommu/theme-gentelella.git"
+	},
+	"authors": [
+		{
+			"name": "Putra Sudaryanto",
+			"email": "putra@sudaryanto.id",
+			"homepage": "https://putra.sudaryanto.id",
+			"role": "Developer"
+		},
+		{
+			"name": "colorlib",
+			"homepage": "https://colorlib.com",
+			"role": "Creator"
+		}
+	],
+	"require": {
+		"php": ">=5.4.0",
+		"oomphinc/composer-installers-extender": "^1.0",
+		"yiisoft/yii2": "~2.0.14",
+		"yidas/yii2-bower-asset": "~2.0.5",
+		"yiister/yii2-gentelella": "~1.0"
+	},
+	"require-dev": {
+	}
+}
