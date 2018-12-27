@@ -13,10 +13,10 @@ $activeGenerator = Yii::$app->controller->generator;
 
 <?php $this->beginContent('@themes/gentelella/layouts/main.php'); ?>
 <div class="row">
-	<div class="col-md-9 col-sm-8">
+	<div class="col-md-9 col-sm-8 col-xs-12">
 		<?php echo $content ?>
 	</div>
-	<div class="col-md-3 col-sm-4">
+	<div class="col-md-3 col-sm-4 col-xs-12">
 		<div class="list-group">
 			<?php
 			foreach ($generators as $id => $generator) {
