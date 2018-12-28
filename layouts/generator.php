@@ -11,10 +11,15 @@ $generators = Yii::$app->controller->module->generators;
 $activeGenerator = Yii::$app->controller->generator;
 ?>
 
-<?php $this->beginContent('@themes/gentelella/layouts/main.php'); ?>
+<?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
 <div class="row">
 	<div class="col-md-9 col-sm-8 col-xs-12">
-		<?php echo $content ?>
+		<?php if(Yii::$app->session->hasFlash('success'))
+			echo $this->flashMessage(Yii::$app->session->getFlash('success'));
+		else if(Yii::$app->session->hasFlash('error'))
+			echo $this->flashMessage(Yii::$app->session->getFlash('error'), 'danger');
+
+		echo $content; ?>
 	</div>
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		<div class="list-group">

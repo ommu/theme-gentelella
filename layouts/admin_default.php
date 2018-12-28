@@ -49,8 +49,9 @@ use themes\gentelella\components\MenuFooter;
 		<div class="clearfix"></div>
 
 		<div class="row">
-			<?php echo $content; ?>
 		</div>
+		<?php echo $content; ?>
+
 	</div>
 	<?php /* end.page content */?>
 
