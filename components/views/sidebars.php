@@ -31,12 +31,10 @@ use themes\gentelella\components\SidebarSetting;
 
         <?php /* sidebar menu */?>
         <?php $menuItems = [];
-        if(Yii::$app->params['installed']) {
-            $menuItems = ArrayHelper::merge(
-                $menuItems,
-                MenuHelper::getAssignedMenu(Yii::$app->user->id)
-            );
-        }
+		$menuItems = ArrayHelper::merge(
+			$menuItems,
+			MenuHelper::getAssignedMenu(Yii::$app->user->id)
+		);
         //echo '<pre>';
         //print_r($menuItems);?>
         <?php echo SidebarMenu::widget(['menuItems' => $menuItems]);?>

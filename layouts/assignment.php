@@ -18,6 +18,7 @@ $this->params['nav-items'] = $menus;
 ?>
 
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
+
 <div class="row">
 	<div class="col-md-9 col-sm-8 col-xs-12">
 		<?php if(Yii::$app->session->hasFlash('success'))

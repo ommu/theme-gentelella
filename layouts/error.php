@@ -10,30 +10,30 @@ use yii\helpers\Html;
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('@themes/gentelella/layouts/default.php'); ?>
 
-	<?php /* page content */?>
-	<div class="col-md-12">
-		<div class="col-middle">
-			<div class="text-center">
+<?php /* page content */?>
+<div class="col-md-12">
+	<div class="col-middle">
+		<div class="text-center">
 
-				<?php echo $content ?>
+			<?php echo $content ?>
 
-				<div class="mid_center">
-					<br/><br/>
-					<form>
-						<div class="col-xs-12 form-group pull-right top_search">
-							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Search for...">
-								<span class="input-group-btn">
-									<button class="btn btn-default" type="button">Go!</button>
-								</span>
-							</div>
+			<div class="mid_center">
+				<br/><br/>
+				<form>
+					<div class="col-xs-12 form-group pull-right top_search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search for...">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">Go!</button>
+							</span>
 						</div>
-					</form>
-				</div>
-
+					</div>
+				</form>
 			</div>
+
 		</div>
 	</div>
-	<?php /* end.page content */?>
+</div>
+<?php /* end.page content */?>
 
 <?php $this->endContent(); ?>

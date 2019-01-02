@@ -12,6 +12,7 @@ $activeGenerator = Yii::$app->controller->generator;
 ?>
 
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
+
 <div class="row">
 	<div class="col-md-9 col-sm-8 col-xs-12">
 		<?php if(Yii::$app->session->hasFlash('success'))
@@ -34,4 +35,5 @@ $activeGenerator = Yii::$app->controller->generator;
 		</div>
 	</div>
 </div>
+
 <?php $this->endContent(); ?>
