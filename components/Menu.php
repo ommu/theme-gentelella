@@ -57,7 +57,7 @@ class Menu extends \yiister\gentelella\widgets\Menu
             $renderedItem,
             [
                 '{icon}' => isset($item['icon'])
-                    ? new Icon($item['icon'], ArrayHelper::getValue($item, 'iconOptions', []))
+                    ? new Icon(substr($item['icon'], 3), ArrayHelper::getValue($item, 'iconOptions', []))
                     : '',
                 '{badge}' => (
                     isset($item['badge'])
