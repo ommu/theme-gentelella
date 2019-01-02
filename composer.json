@@ -38,7 +38,8 @@
 		"oomphinc/composer-installers-extender": "^1.0",
 		"yiisoft/yii2": "~2.0.14",
 		"yidas/yii2-bower-asset": "~2.0.5",
-		"yiister/yii2-gentelella": "~1.0"
+		"yiister/yii2-gentelella": "~1.0",
+		"insolita/yii2-iconpicker": "^3.0"
 	},
 	"require-dev": {
 	}
