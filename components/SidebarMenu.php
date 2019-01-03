@@ -3,9 +3,9 @@ namespace themes\gentelella\components;
 
 class SidebarMenu extends \yii\base\Widget
 {
-    public $menuItems = [];
+	public $menuItems = [];
 
-    public function run() {
-        return $this->render('sidebar_menu');
-    }
+	public function run() {
+		return $this->render('sidebar_menu');
+	}
 }

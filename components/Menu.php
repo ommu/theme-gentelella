@@ -18,57 +18,57 @@ use yii\helpers\Url;
 
 class Menu extends \yiister\gentelella\widgets\Menu
 {
-    /**
-     * @inheritdoc
-     */
-    protected function renderItem($item)
-    {
-        $renderedItem = '';
-        if (isset($item['url'])) {
-            $template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
+	/**
+	 * @inheritdoc
+	 */
+	protected function renderItem($item)
+	{
+		$renderedItem = '';
+		if (isset($item['url'])) {
+			$template = ArrayHelper::getValue($item, 'template', $this->linkTemplate);
 
-            $url = Html::encode(Url::to($item['url']));
-            // Jika key url isinya '#' maka replace href menjadi javascript void.
-            if( (!is_array($item['url']) && substr($item['url'], -1) == '#') || 
-                (is_array($item['url']) && ($item['url'][0] == '/#' || $item['url'][0] == '#')) ) {
-                $url = 'javascript:void(0);';
-            }
+			$url = Html::encode(Url::to($item['url']));
+			// Jika key url isinya '#' maka replace href menjadi javascript void.
+			if( (!is_array($item['url']) && substr($item['url'], -1) == '#') || 
+				(is_array($item['url']) && ($item['url'][0] == '/#' || $item['url'][0] == '#')) ) {
+				$url = 'javascript:void(0);';
+			}
 
-            $renderedItem = strtr($template, [
-                '{url}' => $url,
-                '{label}' => $item['label'],
-            ]);
+			$renderedItem = strtr($template, [
+				'{url}' => $url,
+				'{label}' => $item['label'],
+			]);
 
-        } else {
-            $template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
+		} else {
+			$template = ArrayHelper::getValue($item, 'template', $this->labelTemplate);
 
-            $renderedItem = strtr($template, [
-                '{label}' => $item['label'],
-            ]);
-        }
+			$renderedItem = strtr($template, [
+				'{label}' => $item['label'],
+			]);
+		}
 
-        if (isset($item['badge'])) {
-            $badgeOptions = ArrayHelper::getValue($item, 'badgeOptions', []);
-            Html::addCssClass($badgeOptions, 'label pull-right');
-        } else {
-            $badgeOptions = null;
-        }
-        return strtr(
-            $renderedItem,
-            [
-                '{icon}' => isset($item['icon']) && $item['icon']
-                    ? new Icon(substr($item['icon'], 3), ArrayHelper::getValue($item, 'iconOptions', []))
-                    : '',
-                '{badge}' => (
-                    isset($item['badge'])
-                        ? Html::tag('small', $item['badge'], $badgeOptions)
-                        : ''
-                    ) . (
-                    isset($item['items']) && count($item['items']) > 0
-                        ? (new Icon('chevron-down'))->tag('span')
-                        : ''
-                    ),
-            ]
-        );
-    }
+		if (isset($item['badge'])) {
+			$badgeOptions = ArrayHelper::getValue($item, 'badgeOptions', []);
+			Html::addCssClass($badgeOptions, 'label pull-right');
+		} else {
+			$badgeOptions = null;
+		}
+		return strtr(
+			$renderedItem,
+			[
+				'{icon}' => isset($item['icon']) && $item['icon']
+					? new Icon(substr($item['icon'], 3), ArrayHelper::getValue($item, 'iconOptions', []))
+					: '',
+				'{badge}' => (
+					isset($item['badge'])
+						? Html::tag('small', $item['badge'], $badgeOptions)
+						: ''
+					) . (
+					isset($item['items']) && count($item['items']) > 0
+						? (new Icon('chevron-down'))->tag('span')
+						: ''
+					),
+			]
+		);
+	}
 }
