@@ -1,3 +1,7 @@
+<?php 
+use yii\helpers\Url;
+?>
+
 <?php /* menu footer buttons */?>
 <div class="sidebar-footer hidden-small">
 	<a data-toggle="tooltip" data-placement="top" title="Settings">
@@ -9,7 +13,7 @@
 	<a data-toggle="tooltip" data-placement="top" title="Lock">
 		<span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
 	</a>
-	<a data-toggle="tooltip" data-placement="top" title="Logout">
+	<a href="<?php echo Url::to(['/site/logout']);?>" data-toggle="tooltip" data-placement="top" title="Logout">
 		<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
 	</a>
 </div>
