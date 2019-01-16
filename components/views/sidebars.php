@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use app\modules\rbac\components\MenuHelper;
 use themes\gentelella\components\SidebarMenu;
@@ -11,7 +12,7 @@ use themes\gentelella\components\SidebarSetting;
 	<div class="left_col scroll-view">
 
 		<div class="navbar nav_title" style="border: 0;">
-			<a href="/" class="site_title"><i class="fa fa-paw"></i> <span><?= Yii::$app->name ?></span></a>
+			<a href="<?php echo Url::to(['/site/index']);?>" class="site_title"><i class="fa fa-paw"></i> <span><?= Yii::$app->name ?></span></a>
 		</div>
 		<div class="clearfix"></div>
 

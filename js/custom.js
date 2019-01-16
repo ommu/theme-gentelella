@@ -20,7 +20,7 @@ function countProperties(obj) {
 // submit modal function
 function submitModal() {
 	$('#defaultModal form').submit(function(event) {
-		var url     = $(this).attr('action');
+		var url		 = $(this).attr('action');
 		var options = {
 			type: 'POST',
 			data: $(this).serialize(),
