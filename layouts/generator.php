@@ -6,7 +6,7 @@
 
 use yii\helpers\Html;
 
-$asset = yii\gii\GiiAsset::register($this);
+\yii\gii\GiiAsset::register($this);
 $generators = Yii::$app->controller->module->generators;
 $activeGenerator = Yii::$app->controller->generator;
 ?>
