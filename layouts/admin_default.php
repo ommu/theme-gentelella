@@ -6,8 +6,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use app\components\menu\MenuContent;
-use app\components\menu\MenuOption;
+use app\components\widgets\MenuContent;
+use app\components\widgets\MenuOption;
 use app\components\Utility;
 use themes\gentelella\components\Sidebars;
 use themes\gentelella\components\MenuTop;
