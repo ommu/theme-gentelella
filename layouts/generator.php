@@ -8,8 +8,7 @@ use yii\helpers\Html;
 
 \yii\gii\GiiAsset::register($this);
 $generators = Yii::$app->controller->module->generators;
-$activeGenerator = Yii::$app->controller->generator;
-?>
+$activeGenerator = Yii::$app->controller->generator; ?>
 
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
 
@@ -18,9 +17,13 @@ $activeGenerator = Yii::$app->controller->generator;
 		<?php if(Yii::$app->session->hasFlash('success'))
 			echo $this->flashMessage(Yii::$app->session->getFlash('success'));
 		else if(Yii::$app->session->hasFlash('error'))
-			echo $this->flashMessage(Yii::$app->session->getFlash('error'), 'danger');
+			echo $this->flashMessage(Yii::$app->session->getFlash('error'), 'danger');?>
 
-		echo $content; ?>
+		<div class="x_panel">
+			<div class="x_content">
+				<?php echo $content; ?>
+			</div>
+		</div>
 	</div>
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		<div class="list-group">
