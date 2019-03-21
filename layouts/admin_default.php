@@ -6,12 +6,12 @@
 
 use yii\helpers\Html;
 use yii\widgets\Pjax;
-use app\components\widgets\MenuContent;
-use app\components\widgets\MenuOption;
-use app\components\Utility;
 use themes\gentelella\components\Sidebars;
 use themes\gentelella\components\MenuTop;
 use themes\gentelella\components\MenuFooter;
+use app\components\widgets\MenuContent;
+use app\components\widgets\MenuOption;
+use app\components\Utility;
 ?>
 
 <?php /* @var $this Controller */ ?>

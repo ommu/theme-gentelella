@@ -9,10 +9,16 @@ use app\components\widgets\MenuContent;
 use app\components\widgets\MenuOption;
 
 $controller = $this->context;
-$menus = $controller->module->menus;
+$menus = $controller->subMenu;
 $route = $controller->route;
 foreach ($menus as $i => $menu) {
-	$menus[$i]['active'] = strpos($route, trim($menu['url'][0], '/')) === 0;
+	if(isset($menu['select'])) {
+		if($menu['select'] == 'controller')
+			$menus[$i]['active'] = strtolower($controller->id) === trim($menu['url'][0], '/');
+		else if($menu['select'] == 'action')
+			$menus[$i]['active'] = strtolower($controller->id.'/'.$controller->action->id) === trim($menu['url'][0], '/');
+	} else
+		$menus[$i]['active'] = strpos($route, trim($menu['url'][0], '/')) === 0;
 } ?>
 
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
@@ -58,8 +64,4 @@ foreach ($menus as $i => $menu) {
 	</div>
 </div>
 
-<?php
-list(, $url) = Yii::$app->assetManager->publish('@mdm/admin/assets');
-$this->registerCssFile($url . '/list-item.css');
-
-$this->endContent(); ?>
+<?php $this->endContent(); ?>

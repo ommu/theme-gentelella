@@ -16,7 +16,12 @@ class CustomAsset extends \yii\web\AssetBundle
 	public $depends = [];
 
 	public $publishOptions = [
-		'forceCopy' => true,
+		'forceCopy' => YII_DEBUG? true: false,
+		'except' => [
+			'assets/',
+			'components/',
+			'layouts/',
+		],
 	];
 
 	public function init() {
