@@ -12,6 +12,11 @@ $controller = $this->context;
 $menus = $controller->subMenu;
 $route = $controller->route;
 foreach ($menus as $i => $menu) {
+	foreach ($menu['url'] as $key => $val) {
+		$part = explode('*', $val);
+		if(strpos($part[0], '$_GET') !== false)
+			$menus[$i]['url'][$key] = Yii::$app->request->get($part[1]);
+	}
 	if(isset($menu['select'])) {
 		if($menu['select'] == 'controller')
 			$menus[$i]['active'] = strtolower($controller->id) == trim($menu['url'][0], '/');
@@ -57,9 +62,10 @@ foreach ($menus as $i => $menu) {
 				$label = Html::tag('i', '', ['class' => 'glyphicon glyphicon-chevron-right pull-right']) .
 					Html::tag('span', Html::encode($menu['label']), []);
 				$active = $menu['active'] ? ' active' : '';
-				echo Html::a($label, $menu['url'], [
-					'class' => 'list-group-item' . $active,
-				]);
+				$htmlOptions = ['class' => 'list-group-item' . $active];
+				if(isset($menu['htmlOptions']))
+					$htmlOptions = \yii\helpers\ArrayHelper::merge($htmlOptions, $menu['htmlOptions']);
+				echo Html::a($label, $menu['url'], $htmlOptions);
 			} ?>
 		</div>
 	</div>
