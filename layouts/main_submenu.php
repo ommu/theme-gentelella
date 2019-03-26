@@ -19,7 +19,7 @@ foreach ($menus as $i => $menu) {
 	}
 	if(isset($menu['select'])) {
 		if($menu['select'] == 'controller')
-			$menus[$i]['active'] = strtolower($controller->id) == trim($menu['url'][0], '/');
+			$menus[$i]['active'] = strtolower($controller->id) == trim($menu['url'][0], '/') || preg_match('/^('.addcslashes(strtolower($controller->id), '/').')/', trim($menu['url'][0], '/'));
 			// $menus[$i]['active'] = strtolower($controller->id) == str_replace('/'.$controller->action->id, '', trim($menu['url'][0], '/'));
 		else if($menu['select'] == 'action')
 			$menus[$i]['active'] = strtolower($controller->id.'/'.$controller->action->id) == trim($menu['url'][0], '/');

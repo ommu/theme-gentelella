@@ -1,3 +1,6 @@
+var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
+	$SIDEBAR_MENU = $('#sidebar-menu');
+
 /* loading function */
 function loadingShow(){
 	$('.loading').show();
@@ -47,6 +50,8 @@ function submitModal() {
 }
 
 $(document).ready(function () {
+	$SIDEBAR_MENU.find('li').removeClass('current-page');
+
 	/* dialog load */
 	$(document).on('click', '.modal-btn:not("[data-target]")', function (event) {
 		loadingShow();
