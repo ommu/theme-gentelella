@@ -75,6 +75,27 @@
 	display: block;
 }
 
+/* UL */
+.list-boxed {
+	margin: 10px 0;
+	padding-left: 15px;
+}
+.list-boxed:first-child {
+	margin-top: 0;
+}
+.list-boxed:last-child {
+	margin-bottom: 0;
+}
+.list-boxed:first-child:last-child {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Table */
+.table:last-child {
+	margin-bottom: 0px;
+}
+
 /* =GridView
 -------------------------------------------------------------- */
 .grid-form, 
@@ -210,4 +231,20 @@ form .help-block:last-child {
 }
 .control-label .hint-block {
 	font-weight: 400;
+}
+
+.selectize-control.form-control,
+.selectize-control .selectize-dropdown {
+	padding: 0;
+}
+.selectize-control.form-control {
+	border: none;
+}
+.selectize-control .selectize-dropdown {
+	height: auto;
+}
+.selectize-dropdown .option,
+.selectize-dropdown .optgroup-header,
+.selectize-dropdown .create {
+  padding: 5px 8px;
 }

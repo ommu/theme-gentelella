@@ -30,7 +30,7 @@ foreach ($menus as $i => $menu) {
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
 
 <div class="row">
-	<div class="col-md-9 col-sm-8 col-xs-12">
+	<div class="col-sm-9 col-xs-12">
 		<?php if(Yii::$app->session->hasFlash('success'))
 			echo $this->flashMessage(Yii::$app->session->getFlash('success'));
 		else if(Yii::$app->session->hasFlash('error'))
@@ -56,7 +56,7 @@ foreach ($menus as $i => $menu) {
 			</div>
 		</div>
 	</div>
-	<div class="col-md-3 col-sm-4 col-xs-12">
+	<div class="col-sm-3 col-xs-12">
 		<div class="list-group">
 			<?php foreach ($menus as $menu) {
 				$label = Html::tag('i', '', ['class' => 'glyphicon glyphicon-chevron-right pull-right']) .
