@@ -48,31 +48,27 @@
 		margin-bottom: 10px !important;
 	}
 }
-.x_title ul.nav.content-menu {
+.x_title .content-menu {
 	float: left;
+	padding-left: 0;
+	margin-bottom: 0;
+	list-style: none;
 }
-.x_title ul.nav.navbar-right {
-	text-align: right;
-}
-.x_title ul.nav li {
+.x_title .content-menu li {
 	display: inline-block;
 	float: none !important;
 }
-.x_title ul.nav.content-menu li {
-	padding: 0 15px 0 0;
-}
-.x_title ul.nav.content-menu li:last-child {
+.x_title .content-menu li:last-child {
 	padding: 0 0 0 0;
 }
-.x_title ul.nav.content-menu li a {
-	padding: 5px 0 3px 0;
-	text-decoration: underline;
-}
-.x_title ul.nav.content-menu li a i {
+.x_title .content-menu li a i {
 	margin: 0 5px 0 0;
 }
 .x_title ul.nav ul.dropdown-menu li {
 	display: block;
+}
+.x_title .navbar-right {
+	text-align: right;
 }
 
 /* UL */
@@ -184,6 +180,17 @@ table.detail-view th {
 	width: 35% !important;
 }
 
+/* =Alert
+-------------------------------------------------------------- */
+.bg-secondary {
+    color: #ffffff;
+    background-color: #6c757d;
+}
+.bg-primary {
+    color: #ffffff;
+    background-color: #364c66;
+}
+
 /* =Form
 -------------------------------------------------------------- */
 form .form-group div.checkbox {
@@ -233,6 +240,13 @@ form .help-block:last-child {
 	font-weight: 400;
 }
 
+.selectize-control.shadow .selectize-input > div {
+	border-bottom: 1px dashed #ccc;
+}
+.selectize-control.shadow .selectize-input input {
+	min-width: 50%;
+}
+
 .selectize-control.form-control,
 .selectize-control .selectize-dropdown {
 	padding: 0;
@@ -247,4 +261,7 @@ form .help-block:last-child {
 .selectize-dropdown .optgroup-header,
 .selectize-dropdown .create {
   padding: 5px 8px;
+}
+.kv-meter-container {
+	display: none;
 }
