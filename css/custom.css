@@ -229,6 +229,9 @@ form .help-block:last-child {
 	font-size: 12px;
 	color: #999;
 }
+form.hint-tooltip .hint-block {
+	display: none;
+}
 .hint-block:first-child,
 .control-label~.hint-block {
 	margin-top: 0;

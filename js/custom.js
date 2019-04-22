@@ -1,11 +1,12 @@
 var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
-	$SIDEBAR_MENU = $('#sidebar-menu');
+	$SIDEBAR_MENU = $('#sidebar-menu')
+	HINT_TOOLTIP = $('form.hint-tooltip');
 
 /* loading function */
-function loadingShow(){
+function loadingShow() {
 	$('.loading').show();
 }
-function loadingHide(){
+function loadingHide() {
 	$('.loading').hide();
 }
 
@@ -19,6 +20,18 @@ function countProperties(obj) {
 	}
 	return propCount;
 }
+
+function initHintBlocks() {
+	$('.hint-block').each(function () {
+		var $hint = $(this);
+		$hint.parents('.form-group').find('label').addClass('help').popover({
+			html: true,
+			trigger: 'hover',
+			placement: 'right',
+			content: $hint.html()
+		});
+	});
+};
 
 // submit modal function
 function submitModal() {
@@ -51,6 +64,9 @@ function submitModal() {
 
 $(document).ready(function () {
 	$SIDEBAR_MENU.find('li').removeClass('current-page');
+
+	if(HINT_TOOLTIP.length > 0)
+		initHintBlocks();
 
 	/* dialog load */
 	$(document).on('click', '.modal-btn:not("[data-target]")', function (event) {
