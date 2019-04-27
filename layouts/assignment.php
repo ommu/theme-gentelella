@@ -58,8 +58,4 @@ foreach ($menus as $i => $menu) {
 	</div>
 </div>
 
-<?php
-list(, $url) = Yii::$app->assetManager->publish('@mdm/admin/assets');
-$this->registerCssFile($url . '/list-item.css');
-
-$this->endContent(); ?>
+<?php $this->endContent(); ?>
