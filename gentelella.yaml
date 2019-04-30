@@ -5,3 +5,6 @@ author:
   phone: (+62)856-299-4114
   email: putra@sudaryanto.id
   homepage: https://sudaryanto.id
+
+theme_setting:
+  content_menu_class: btn-sm
