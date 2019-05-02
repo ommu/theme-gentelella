@@ -6,5 +6,8 @@ author:
   email: putra@sudaryanto.id
   homepage: https://sudaryanto.id
 
+widget_class:
+  GridView: themes\stackadmin\components\grid\GridView
+
 theme_setting:
   content_menu_class: btn-sm
