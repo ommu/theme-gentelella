@@ -7,7 +7,7 @@ author:
   homepage: https://sudaryanto.id
 
 widget_class:
-  GridView: themes\stackadmin\components\grid\GridView
+  GridView: themes\gentelella\components\grid\GridView
 
 theme_setting:
   content_menu_class: btn-sm
