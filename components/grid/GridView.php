@@ -39,6 +39,6 @@ class GridView extends \yiister\gentelella\widgets\grid\GridView
 	{
 		parent::init();
 
-		$this->layout = '<div class="row"><div class="col-sm-12">{items}</div></div><div class="row sum-page"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
+		$this->layout = '{items}<div class="row"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
 	}
 }
