@@ -27,18 +27,8 @@ class GridView extends \yiister\gentelella\widgets\grid\GridView
 		parent::run();
 
 		if($this->view->theme->name != 'gentelella') {
-			$gridViewIgnore = $this->view->themeSetting['gridview_ignore'];
 			unset($this->view->assetBundles['yiister\gentelella\assets\ThemeBuildAsset']);
 			unset($this->view->assetBundles['yiister\gentelella\widgets\grid\GridViewAsset']);
-
-			if(isset($gridViewIgnore) && is_array($gridViewIgnore) && !empty($gridViewIgnore)) {
-				foreach ($gridViewIgnore as $val) {
-					if($val == 'bootstrap')
-						unset($this->view->assetBundles['yii\bootstrap\BootstrapAsset']);
-					else if($val == 'fontawesome')
-						unset($this->view->assetBundles['rmrevin\yii\fontawesome\AssetBundle']);
-				}
-			}
 		}
 	}
 }
