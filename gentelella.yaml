@@ -10,4 +10,5 @@ widget_class:
   GridView: themes\gentelella\components\grid\GridView
 
 theme_setting:
+  bootstrap4: false
   content_menu_class: btn-sm

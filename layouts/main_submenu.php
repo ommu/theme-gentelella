@@ -31,10 +31,7 @@ foreach ($menus as $i => $menu) {
 
 <div class="row">
 	<div class="col-sm-9 col-xs-12">
-		<?php if(Yii::$app->session->hasFlash('success'))
-			echo $this->flashMessage(Yii::$app->session->getFlash('success'));
-		else if(Yii::$app->session->hasFlash('error'))
-			echo $this->flashMessage(Yii::$app->session->getFlash('error'), 'danger'); ?>
+		<?php echo \app\components\widgets\Alert::widget(); ?>
 
 		<div class="x_panel">
 			<div class="x_title">
