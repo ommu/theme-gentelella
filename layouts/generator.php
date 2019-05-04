@@ -14,7 +14,7 @@ $activeGenerator = Yii::$app->controller->generator; ?>
 
 <div class="row">
 	<div class="col-md-9 col-sm-8 col-xs-12">
-		<?php echo \app\components\widgets\Alert::widget(); ?>
+		<?php echo \app\components\widgets\Alert::widget(['closeButton'=>false]); ?>
 
 		<div class="x_panel">
 			<div class="x_content">

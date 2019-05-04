@@ -51,7 +51,7 @@ use app\components\Utility;
 	<div class="row">
 		<?php //Pjax::begin(); ?>
 		<div class="col-md-12 col-sm-12 col-xs-12">
-			<?php echo \app\components\widgets\Alert::widget(); ?>
+			<?php echo \app\components\widgets\Alert::widget(['closeButton'=>false]); ?>
 
 			<div class="x_panel">
 				<div class="x_title">

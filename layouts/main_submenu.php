@@ -31,7 +31,7 @@ foreach ($menus as $i => $menu) {
 
 <div class="row">
 	<div class="col-sm-9 col-xs-12">
-		<?php echo \app\components\widgets\Alert::widget(); ?>
+		<?php echo \app\components\widgets\Alert::widget(['closeButton'=>false]); ?>
 
 		<div class="x_panel">
 			<div class="x_title">
