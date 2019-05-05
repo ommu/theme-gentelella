@@ -22,6 +22,11 @@ class GridView extends \yiister\gentelella\widgets\grid\GridView
 	/**
 	 * {@inheritdoc}
 	 */
+	public $layout = '{items}<div class="row"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
+
+	/**
+	 * {@inheritdoc}
+	 */
 	public function run()
 	{
 		parent::run();
@@ -30,15 +35,5 @@ class GridView extends \yiister\gentelella\widgets\grid\GridView
 			unset($this->view->assetBundles['yiister\gentelella\assets\ThemeBuildAsset']);
 			unset($this->view->assetBundles['yiister\gentelella\widgets\grid\GridViewAsset']);
 		}
-	}
-
-	/**
-	 * {@inheritdoc}
-	 */
-	public function init()
-	{
-		parent::init();
-
-		$this->layout = '{items}<div class="row"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
 	}
 }
