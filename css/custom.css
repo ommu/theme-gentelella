@@ -181,7 +181,7 @@ table.detail-view th {
 /* =Form
 -------------------------------------------------------------- */
 form .form-group div.checkbox {
-	padding-top: 8px;
+	padding-top: 0;
 }
 form .form-group .btn {
 	margin-bottom: 0;
@@ -227,6 +227,7 @@ form.hint-tooltip .hint-block {
 	font-weight: 400;
 }
 
+/* Selectize */
 .selectize-control.shadow .selectize-input > div {
 	border-bottom: 1px dashed #ccc;
 }
