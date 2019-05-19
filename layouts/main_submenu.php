@@ -15,7 +15,7 @@ foreach ($menus as $i => $menu) {
 	foreach ($menu['url'] as $key => $val) {
 		$part = explode('*', $val);
 		if(strpos($part[0], '$_GET') !== false)
-			$menus[$i]['url'][$key] = Yii::$app->request->get($part[1]);
+			$menus[$i]['url'][$key] = $controller->subMenuParam ? $controller->subMenuParam : Yii::$app->request->get($part[1]);
 	}
 	if(isset($menu['select'])) {
 		if($menu['select'] == 'controller')
