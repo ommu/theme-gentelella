@@ -15,7 +15,7 @@ use yii\helpers\Html;
 	<div class="col-middle">
 		<div class="text-center">
 
-			<?php echo $content ?>
+			<?php echo $content; ?>
 
 			<div class="mid_center">
 				<br/><br/>

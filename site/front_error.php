@@ -15,7 +15,6 @@
 
 use yii\helpers\Html;
 
-$this->context->layout = 'error';
 $this->title = $name;
 
 $textColor = $exception->statusCode === 404 ? "text-yellow" : "text-red";
@@ -24,4 +23,4 @@ $textColor = $exception->statusCode === 404 ? "text-yellow" : "text-red";
 <h1 class="error-number <?= $textColor;?>"><?= $exception->statusCode ?></h1>
 <h2><?= nl2br(Html::encode($exception->getName())) ?></h2>
 <p><?= nl2br(Html::encode($message)) ?></p>
-<a href="#">Report this?</a>
+<?php echo Html::a(Yii::t('app', 'Report this?'), ['/report/site/add', 'url'=>Yii::$app->request->absoluteUrl, 'message'=>$name.' '.nl2br(Html::encode($message))], ['class'=>'modal-btn']);?>

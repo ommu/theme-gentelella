@@ -635,9 +635,6 @@ form .form-group .desc label {
 form .form-group .row {
 	margin-bottom: 10px;
 }
-form .row .help-block {
-	margin-top: 10px;
-}
 form .form-group:last-child,
 form .help-block:last-child {
 	margin-bottom: 0;
@@ -661,6 +658,10 @@ form.hint-tooltip .hint-block {
 .control-label .hint-block {
 	font-weight: 400;
 }
+.control-label.text-left {
+	text-align: left;
+}
+
 
 /* Selectize */
 .selectize-control.shadow .selectize-input > div {
