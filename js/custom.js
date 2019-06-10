@@ -42,12 +42,26 @@ function submitModal() {
 			data: $(this).serialize(),
 			dataType: 'json',
 			success: function(response, textStatus, jqXHR) {
-				if(countProperties(response) > 0) {
-					$('form[action="'+url+'"] .form-group').removeClass('has-error');
-					$('form[action="'+url+'"] .form-group .help-block').html('');
-					for(i in response) {
-						$('form[action="'+url+'"] .field-' + i ).addClass('has-error');
-						$('form[action="'+url+'"] .field-' + i + ' .help-block').html(response[i][0]);
+				if (typeof(response.error) != 'undefined') {
+					if(response.error == 0) {
+						var $modalForm = $('form[action="'+url+'"]').parents('.modal-body');
+						if($modalForm.length > 0)
+							$modalForm.html(response.message);
+					}
+					return false;
+
+				} else {
+					if(response.redirect != null)
+						location.href = response.redirect;
+					else {
+						if(countProperties(response) > 0) {
+							$('form[action="'+url+'"] .form-group').removeClass('has-error');
+							$('form[action="'+url+'"] .form-group .help-block').html('');
+							for(i in response) {
+								$('form[action="'+url+'"] .field-' + i ).addClass('has-error');
+								$('form[action="'+url+'"] .field-' + i + ' .help-block').html(response[i][0]);
+							}
+						}
 					}
 				}
 			},
@@ -72,7 +86,7 @@ $(document).ready(function () {
 	$(document).on('click', '.modal-btn:not("[data-target]")', function (event) {
 		loadingShow();
 		var link = $(this).attr('href');
-		$('#defaultModal .modal-body').load(link, function () {
+		$('#defaultModal .modal-content').load(link, function () {
 			loadingHide();
 			$('#defaultModal').modal({
 				show: true,
