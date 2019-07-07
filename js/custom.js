@@ -35,8 +35,8 @@ function initHintBlocks() {
 
 // submit modal function
 function submitModal() {
-	$('#defaultModal form').submit(function(event) {
-		var url		 = $(this).attr('action');
+	$('#defaultModal form, #defaultModal form:not("[on_post]")').submit(function(event) {
+		var url = $(this).attr('action');
 		var options = {
 			type: 'POST',
 			data: $(this).serialize(),
@@ -53,6 +53,8 @@ function submitModal() {
 				} else {
 					if(response.redirect != null)
 						location.href = response.redirect;
+					else if(response.reload != null)
+						location.reload();
 					else {
 						if(countProperties(response) > 0) {
 							$('form[action="'+url+'"] .form-group').removeClass('has-error');
@@ -94,5 +96,8 @@ $(document).ready(function () {
 			submitModal();
 		});
 		event.preventDefault();
+	});
+	$('#defaultModal').on('hidden.bs.modal', function (e) {
+		$(this).find('.modal-content').html('');
 	});
 });

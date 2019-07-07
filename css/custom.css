@@ -1,4 +1,8 @@
-
+.detail-view a:not(.btn) {
+	color: #337ab7;
+	text-decoration: underline;
+	font-weight: 500;
+}
 
 img {
 	max-width: 100%;
@@ -62,39 +66,7 @@ img {
 	height: 100vh !important;
 }
 
-/* Element display */
-.d-none {
-	display: none !important;
-}
-.d-inline {
-	display: inline !important;
-}
-.d-inline-block {
-	display: inline-block !important;
-}
-.d-block {
-	display: block !important;
-}
-.d-table {
-	display: table !important;
-}
-.d-table-row {
-	display: table-row !important;
-}
-.d-table-cell {
-	display: table-cell !important;
-}
-.d-flex {
-	display: -ms-flexbox !important;
-	display: flex !important;
-}
-.d-inline-flex {
-	display: -ms-inline-flexbox !important;
-	display: inline-flex !important;
-}
-
 /* Element spacing */
-
 .m-0 {
 	margin: 0 !important;
 }
@@ -434,17 +406,143 @@ img {
 	margin-bottom: auto !important;
 }
 
-/* =Misc class for general use 
--------------------------------------------------------------- */
-/* Padding and Margin */
-.pt-0 {padding-top: 0px;} .pt-5 {padding-top: 5px;} .pt-10 {padding-top: 10px;} .pt-15 {padding-top: 15px;} .pt-20 {padding-top: 20px;} .pt-25 {padding-top: 25px;}
-.pr-0 {padding-right: 0px;} .pr-5 {padding-right: 5px;} .pr-10 {padding-right: 10px;} .pr-15 {padding-right: 15px;} .pr-20 {padding-right: 20px;} .pr-25 {padding-right: 25px;}
-.pb-0 {padding-bottom: 0px;} .pb-5 {padding-bottom: 5px;} .pb-10 {padding-bottom: 10px;} .pb-15 {padding-bottom: 15px;} .pb-20 {padding-bottom: 20px;} .pb-25 {padding-bottom: 25px;}
-.pl-0 {padding-left: 0px;} .pl-5 {padding-left: 5px;} .pl-10 {padding-left: 10px;} .pl-15 {padding-left: 15px;} .pl-20 {padding-left: 20px;} .pl-25 {padding-left: 25px;}
-.mt-0 {margin-top: 0px;} .mt-5 {margin-top: 5px;} .mt-10 {margin-top: 10px;} .mt-15 {margin-top: 15px;} .mt-20 {margin-top: 20px;} .mt-25 {margin-top: 25px;}
-.mr-0 {margin-right: 0px;} .mr-5 {margin-right: 5px;} .mr-10 {margin-right: 10px;} .mr-15 {margin-right: 15px;} .mr-20 {margin-right: 20px;} .mr-25 {margin-right: 25px;}
-.mb-0 {margin-bottom: 0px;} .mb-5 {margin-bottom: 5px;} .mb-10 {margin-bottom: 10px;} .mb-15 {margin-bottom: 15px;} .mb-20 {margin-bottom: 20px;} .mb-25 {margin-bottom: 25px;}
-.ml-0 {margin-left: 0px;} .ml-5 {margin-left: 5px;} .ml-10 {margin-left: 10px;} .ml-15 {margin-left: 15px;} .ml-20 {margin-left: 20px;} .ml-25 {margin-left: 25px;}
+/* Element display */
+.d-none {
+	display: none !important;
+}
+.d-inline {
+	display: inline !important;
+}
+.d-inline-block {
+	display: inline-block !important;
+}
+.d-block {
+	display: block !important;
+}
+.d-table {
+	display: table !important;
+}
+.d-table-row {
+	display: table-row !important;
+}
+.d-table-cell {
+	display: table-cell !important;
+}
+.d-flex {
+	display: -ms-flexbox !important;
+	display: flex !important;
+}
+.d-inline-flex {
+	display: -ms-inline-flexbox !important;
+	display: inline-flex !important;
+}
+
+/* Element border and rounded */
+.border {
+	border: 1px solid #dee2e6 !important;
+}
+.border-top {
+	border-top: 1px solid #dee2e6 !important;
+}
+.border-right {
+	border-right: 1px solid #dee2e6 !important;
+}
+.border-bottom {
+	border-bottom: 1px solid #dee2e6 !important;
+}
+.border-left {
+	border-left: 1px solid #dee2e6 !important;
+}
+.border-0 {
+	border: 0 !important;
+}
+.border-top-0 {
+	border-top: 0 !important;
+}
+.border-right-0 {
+	border-right: 0 !important;
+}
+.border-bottom-0 {
+	border-bottom: 0 !important;
+}
+.border-left-0 {
+	border-left: 0 !important;
+}
+.border-primary {
+	border-color: #007bff !important;
+}
+.border-secondary {
+	border-color: #6c757d !important;
+}
+.border-success {
+	border-color: #28a745 !important;
+}
+.border-info {
+	border-color: #17a2b8 !important;
+}
+.border-warning {
+	border-color: #ffc107 !important;
+}
+.border-danger {
+	border-color: #dc3545 !important;
+}
+.border-light {
+	border-color: #f8f9fa !important;
+}
+.border-dark {
+	border-color: #343a40 !important;
+}
+.border-white {
+	border-color: #fff !important;
+}
+.border-width-2 {
+	border-width: 2px !important;
+}
+.border-width-3 {
+	border-width: 3px !important;
+}
+.border-width-4 {
+	border-width: 4px !important;
+}
+.border-width-4 {
+	border-width: 5px !important;
+}
+
+.rounded-sm {
+	border-radius: 0.2rem !important;
+}
+.rounded {
+	border-radius: 0.25rem !important;
+}
+.rounded-top {
+	border-top-left-radius: 0.25rem !important;
+	border-top-right-radius: 0.25rem !important;
+}
+.rounded-right {
+	border-top-right-radius: 0.25rem !important;
+	border-bottom-right-radius: 0.25rem !important;
+}
+.rounded-bottom {
+	border-bottom-right-radius: 0.25rem !important;
+	border-bottom-left-radius: 0.25rem !important;
+}
+.rounded-left {
+	border-top-left-radius: 0.25rem !important;
+	border-bottom-left-radius: 0.25rem !important;
+}
+.rounded-lg {
+	border-radius: 0.3rem !important;
+}
+.rounded-circle {
+	border-radius: 50% !important;
+}
+.rounded-pill {
+	border-radius: 50rem !important;
+}
+.rounded-0 {
+	border-radius: 0 !important;
+}
+
 
 /* =Content Box
 -------------------------------------------------------------- */
@@ -562,7 +660,6 @@ img {
 	outline-offset: -1px;
 	background: #fff;
 }
-
 .grid-view td.center {
 	text-align: center;
 	width: 1px;
@@ -599,7 +696,7 @@ img {
 /* =DetailView
 -------------------------------------------------------------- */
 table.detail-view th {
-	width: 35% !important;
+	width: 200px !important;
 }
 
 /* =Alert
@@ -639,7 +736,6 @@ form .form-group:last-child,
 form .help-block:last-child {
 	margin-bottom: 0;
 }
-
 .hint-block {
 	margin: 10px 0;
 	font-size: 12px;
@@ -662,15 +758,14 @@ form.hint-tooltip .hint-block {
 	text-align: left;
 }
 
-
-/* Selectize */
+/* =Selectize
+-------------------------------------------------------------- */
 .selectize-control.shadow .selectize-input > div {
 	border-bottom: 1px dashed #ccc;
 }
 .selectize-control.shadow .selectize-input input {
 	min-width: 50%;
 }
-
 .selectize-control.form-control,
 .selectize-control .selectize-dropdown {
 	padding: 0;
@@ -681,6 +776,7 @@ form.hint-tooltip .hint-block {
 .selectize-control .selectize-dropdown {
 	height: auto;
 }
+.selectize-dropdown [data-selectable],
 .selectize-dropdown .option,
 .selectize-dropdown .optgroup-header,
 .selectize-dropdown .create {
@@ -688,4 +784,32 @@ form.hint-tooltip .hint-block {
 }
 .kv-meter-container {
 	display: none;
+}
+
+/**
+ * Email Contacts
+ */
+ .selectize-control.contacts .selectize-input [data-value] .email {
+	opacity: 0.5;
+}
+.selectize-control.contacts .selectize-input [data-value] .name + .email {
+	margin-left: 1px;
+}
+.selectize-control.contacts .selectize-input [data-value] .email:before {
+	content: '<';
+}
+.selectize-control.contacts .selectize-input [data-value] .email:after {
+	content: '>';
+}
+.selectize-control.contacts .selectize-dropdown .label {
+	color: #555;
+	font-size: 13px;
+	padding: 0;
+}
+.selectize-control.contacts .selectize-dropdown .caption {
+	font-size: 12px;
+	display: block;
+	opacity: 0.5;
+	background: none;
+	padding: 0;
 }
