@@ -1,16 +1,18 @@
 {
 	"name": "ommu/gentelella",
 	"description": "Gentelella - Free Bootstrap Admin Template",
+	"type": "ommu-theme",
 	"keywords": [
 		"theme",
-		"backend",
 		"gentelella",
+		"admin-template",
+		"bootstrap3",
 		"ommu",
-		"ommu-platform"
+		"ommu-platform",
+		"yii2"
 	],
-	"homepage": "https://github.com/ommu/theme-gentelella",
-	"type": "ommu-theme",
 	"license": "Apache-2.0",
+	"homepage": "https://github.com/ommu/theme-gentelella",
 	"support": {
 		"issues": "https://github.com/ommu/theme-gentelella/issues",
 		"wiki": "https://github.com/ommu/theme-gentelella/wiki",
@@ -35,11 +37,8 @@
 	],
 	"require": {
 		"php": "~7.0",
-		"oomphinc/composer-installers-extender": "^1.0",
 		"yiisoft/yii2": "~2.0.14",
 		"yidas/yii2-bower-asset": "~2.0.5",
 		"yiister/yii2-gentelella": "~1.0"
-	},
-	"require-dev": {
 	}
 }

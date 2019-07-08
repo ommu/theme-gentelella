@@ -35,12 +35,17 @@ function initHintBlocks() {
 
 // submit modal function
 function submitModal() {
-	$('#defaultModal form, #defaultModal form:not("[on_post]")').submit(function(event) {
+	var submit = false;
+	$('#defaultModal form').on('submit', function(event) {
+		event.preventDefault();
 		var url = $(this).attr('action');
 		var options = {
 			type: 'POST',
 			data: $(this).serialize(),
 			dataType: 'json',
+			beforeSend: function(jqXHR) {
+				submit = true;
+			},
 			success: function(response, textStatus, jqXHR) {
 				if (typeof(response.error) != 'undefined') {
 					if(response.error == 0) {
@@ -64,17 +69,20 @@ function submitModal() {
 								$('form[action="'+url+'"] .field-' + i + ' .help-block').html(response[i][0]);
 							}
 						}
+						submit = false;
 					}
+					return false;
 				}
 			},
 			complete: function(jqXHR, textStatus) {
 				var redirect = jqXHR.getResponseHeader('X-Redirect');
 				if(redirect != null)
 					location.href = redirect;
+				return false;
 			}
 		}
-		$.ajax(url, options);
-		event.preventDefault();
+		if(submit == false)
+			$.ajax(url, options);
 	});
 }
 
@@ -86,6 +94,7 @@ $(document).ready(function () {
 
 	/* dialog load */
 	$(document).on('click', '.modal-btn:not("[data-target]")', function (event) {
+		event.preventDefault();
 		loadingShow();
 		var link = $(this).attr('href');
 		$('#defaultModal .modal-content').load(link, function () {
@@ -95,7 +104,6 @@ $(document).ready(function () {
 			});
 			submitModal();
 		});
-		event.preventDefault();
 	});
 	$('#defaultModal').on('hidden.bs.modal', function (e) {
 		$(this).find('.modal-content').html('');
