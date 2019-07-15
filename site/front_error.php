@@ -14,13 +14,25 @@
  */
 
 use yii\helpers\Html;
+use ommu\report\models\ReportSetting;
+use ommu\report\models\Reports;
 
 $this->title = $name;
 
 $textColor = $exception->statusCode === 404 ? "text-yellow" : "text-red";
+$url = Yii::$app->request->absoluteUrl;
+$message = $name.' '.nl2br(Html::encode($message));
+
+$model = ReportSetting::find()
+	->select(['auto_report_cat_id'])
+	->where(['id'=>1])
+	->one();
+
+if($model->auto_report_i)
+	Reports::insertReport($url, $message);
 ?>
 
 <h1 class="error-number <?= $textColor;?>"><?= $exception->statusCode ?></h1>
 <h2><?= nl2br(Html::encode($exception->getName())) ?></h2>
 <p><?= nl2br(Html::encode($message)) ?></p>
-<?php echo Html::a(Yii::t('app', 'Report this?'), ['/report/site/add', 'url'=>Yii::$app->request->absoluteUrl, 'message'=>$name.' '.nl2br(Html::encode($message))], ['class'=>'modal-btn']);?>
+<?php echo Html::a(Yii::t('app', 'Report this?'), ['/report/site/add', 'url'=>$url, 'message'=>$message], ['class'=>'modal-btn']);?>
