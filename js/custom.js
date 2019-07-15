@@ -50,7 +50,6 @@ function submitModal() {
 			},
 			success: function(response, textStatus, jqXHR) {
 				submit = false;
-				console.log('success');
 				if (typeof(response.error) != 'undefined') {
 					if(response.error == 0) {
 						var $modalForm = $('form[action="'+url+'"]').parents('.modal-body');
