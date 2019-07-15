@@ -49,6 +49,8 @@ function submitModal() {
 				submit = true;
 			},
 			success: function(response, textStatus, jqXHR) {
+				submit = false;
+				console.log('success');
 				if (typeof(response.error) != 'undefined') {
 					if(response.error == 0) {
 						var $modalForm = $('form[action="'+url+'"]').parents('.modal-body');
@@ -71,7 +73,6 @@ function submitModal() {
 								$('form[action="'+url+'"] .field-' + i + ' .help-block').html(response[i][0]);
 							}
 						}
-						submit = false;
 					}
 					return false;
 				}
@@ -80,8 +81,6 @@ function submitModal() {
 				var redirect = jqXHR.getResponseHeader('X-Redirect');
 				if(redirect != null)
 					location.href = redirect;
-				submit = false;
-				return false;
 			}
 		}
 		if(submit == false)
