@@ -37,7 +37,9 @@ function initHintBlocks() {
 function submitModal() {
 	var submit = false;
 	$('#defaultModal form').on('submit', function(event) {
-		event.preventDefault();
+		var onPost = $(this).attr('onpost');
+		if(typeof(onPost) == 'undefined')
+			event.preventDefault();
 		var url = $(this).attr('action');
 		var options = {
 			type: 'POST',
@@ -78,6 +80,7 @@ function submitModal() {
 				var redirect = jqXHR.getResponseHeader('X-Redirect');
 				if(redirect != null)
 					location.href = redirect;
+				submit = false;
 				return false;
 			}
 		}
