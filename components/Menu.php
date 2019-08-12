@@ -3,7 +3,7 @@
  * Menu class
  * Klas turunan dari klas menu gentelella dengan ditambahkan penangan javascript void pada menu yg mengandung #
  *
- * @author Putra Sudaryanto <putra@sudaryanto.id>
+ * @author Putra Sudaryanto <putra@ommu.co>
  * @contact (+62)856-299-4114
  * @copyright Copyright (c) 2018 OMMU (www.ommu.co)
  * @created date 2 January 2018, 23:08 WIB
@@ -13,11 +13,10 @@
 
 namespace themes\gentelella\components;
 
-use Yii;
-use rmrevin\yii\fontawesome\component\Icon;
-use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\helpers\ArrayHelper;
+use rmrevin\yii\fontawesome\component\Icon;
 
 class Menu extends \yiister\gentelella\widgets\Menu
 {
