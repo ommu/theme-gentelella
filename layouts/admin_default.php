@@ -4,29 +4,19 @@
  * @var \yii\web\View $this
  */
 
-use yii\helpers\Html;
-use yii\widgets\Pjax;
-use themes\gentelella\components\Sidebars;
-use themes\gentelella\components\MenuTop;
-use themes\gentelella\components\MenuFooter;
-use app\components\widgets\MenuContent;
-use app\components\widgets\MenuOption;
-use app\components\Utility;
+use yii\widgets\Breadcrumbs;
 ?>
 
 <?php /* @var $this Controller */ ?>
 <?php $this->beginContent('@themes/gentelella/layouts/default.php'); ?>
 
-<?php /* sidebar navigation */?>
-<?php echo Sidebars::widget();?>
-<?php /* end.sidebar navigation */?>
-
-<?php /* top navigation */?>
-<?php echo MenuTop::widget();?>
-<?php /* end.top navigation */?>
-
 <?php /* page content */?>
 <div class="right_col" role="main">
+	<div class="breadcrumb">
+	<?php echo Breadcrumbs::widget([
+		'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+	]); ?>
+	</div>
 	<?php if (isset($this->title)): ?>
 		<div class="page-title">
 			<div class="title_left <?php echo $this->searchShow != true ? 'full-size' : '';?>">
@@ -48,15 +38,15 @@ use app\components\Utility;
 	<?php endif; ?>
 	<div class="clearfix"></div>
 
-	<div class="row">
-	</div>
-	<?php echo $content; ?>
+	<?php if($this->context->layout != 'main') {?>
+		<div class="row">
+		</div>
+	<?php }
+
+	//begin.content
+	echo $content; ?>
 
 </div>
 <?php /* end.page content */?>
-
-<?php /* footer content */?>
-<?php echo MenuFooter::widget();?>
-<?php /* end.footer content */?>
 
 <?php $this->endContent(); ?>

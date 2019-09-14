@@ -5,6 +5,9 @@
  */
 
 use yii\helpers\Html;
+use themes\gentelella\components\Sidebars;
+use themes\gentelella\components\MenuTop;
+use themes\gentelella\components\MenuFooter;
 
 \yiister\gentelella\assets\Asset::register($this);
 \themes\gentelella\assets\CustomAsset::register($this);
@@ -42,7 +45,21 @@ $this->beginPage();?>
 	<?php $this->beginBody();?>
 	<div class="container body">
 		<div class="main_container">
-			<?php echo $content ?>
+			<?php if(!($this->context->action instanceof \yii\web\ErrorAction)) {
+				// begin.sidebar navigation 
+				echo Sidebars::widget();
+				
+				// begin.top navigation
+				echo MenuTop::widget();
+			}
+			
+			//begin.content
+			echo $content;
+			
+			if(!($this->context->action instanceof \yii\web\ErrorAction)) {
+				//begin.footer content
+				echo MenuFooter::widget();
+			}?>
 		</div>
 	</div>
 

@@ -7,6 +7,7 @@
 use yii\helpers\Html;
 use app\components\widgets\MenuContent;
 use app\components\widgets\MenuOption;
+use yii\helpers\ArrayHelper;
 
 $controller = $this->context;
 $menus = $controller->module->menus;
@@ -43,7 +44,10 @@ foreach ($menus as $i => $menu) {
 	</div>
 	<div class="col-md-3 col-sm-4 col-xs-12">
 		<div class="list-group">
-			<?php foreach ($menus as $menu) {
+			<?php foreach ($menus as $key => $menu) {
+				if($key == 'menu' && ($app = Yii::$app->request->get('app')) != null)
+					$menu['url'] = ArrayHelper::merge($menu['url'], ['app'=>$app]);
+
 				$label = Html::tag('i', '', ['class' => 'glyphicon glyphicon-chevron-right pull-right']) .
 					Html::tag('span', Html::encode($menu['label']), []);
 				$active = $menu['active'] ? ' active' : '';

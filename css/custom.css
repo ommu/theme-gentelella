@@ -3,7 +3,6 @@
 	text-decoration: underline;
 	font-weight: 500;
 }
-
 img {
 	max-width: 100%;
 }
@@ -12,6 +11,15 @@ img {
 .dropzone {
 	border: 2px dashed #e5e5e5;
 	min-height: 150px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+	padding: 0;
+	margin-bottom: 0;
+}
+.breadcrumb ul {
+	margin-bottom: 0;
 }
 
 /* Bootstrap4 Missing class
