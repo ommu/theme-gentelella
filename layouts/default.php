@@ -9,8 +9,7 @@ use themes\gentelella\components\Sidebars;
 use themes\gentelella\components\MenuTop;
 use themes\gentelella\components\MenuFooter;
 
-\yiister\gentelella\assets\Asset::register($this);
-\themes\gentelella\assets\CustomAsset::register($this);
+$themeAsset = \themes\gentelella\assets\CustomAsset::register($this);
 
 $this->beginPage();?>
 <!DOCTYPE html>
@@ -23,7 +22,18 @@ $this->beginPage();?>
 	<meta name="theme-color" content="#317EFB"/>
 	<?php echo Html::csrfMetaTags() ?>
 	<title><?php echo Html::encode($this->pageTitle) ?></title>
-	<?php $this->head() ?>
+	<?php $this->head();
+	$baseUrl = Yii::getAlias('@web');
+$js = <<<JS
+	const baseUrl = '{$baseUrl}';
+	const themeAssetUrl = '{$themeAsset->baseUrl}';
+if ('serviceWorker' in navigator) {
+	window.addEventListener('load', function() {
+		navigator.serviceWorker.register(baseUrl + '/service-worker.js');
+	});
+}
+JS;
+$this->registerJs($js, $this::POS_HEAD); ?>
 	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>

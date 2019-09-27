@@ -13,7 +13,9 @@ class CustomAsset extends \yii\web\AssetBundle
 		'js/custom.js',
 	];
 
-	public $depends = [];
+	public $depends = [
+		'yiister\gentelella\assets\Asset',
+	];
 
 	public $publishOptions = [
 		'forceCopy' => YII_DEBUG? true: false,
@@ -23,9 +25,5 @@ class CustomAsset extends \yii\web\AssetBundle
 			'layouts/',
 		],
 	];
-
-	public function init() {
-		parent::init();
-	}
 
 }
