@@ -27,9 +27,10 @@ $this->beginPage();?>
 $js = <<<JS
 	const baseUrl = '{$baseUrl}';
 	const themeAssetUrl = '{$themeAsset->baseUrl}';
+	const version = '1';
 if ('serviceWorker' in navigator) {
 	window.addEventListener('load', function() {
-		navigator.serviceWorker.register(baseUrl + '/service-worker.js');
+		navigator.serviceWorker.register(baseUrl + '/service-worker.js?v='+version+'&bu='+baseUrl+'&tu='+themeAssetUrl);
 	});
 }
 JS;
