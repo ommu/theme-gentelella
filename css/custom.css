@@ -785,6 +785,9 @@ form.hint-tooltip .hint-block {
 .selectize-control .selectize-dropdown {
 	height: auto;
 }
+.selectize-dropdown {
+	z-index: 110 !important;
+}
 .selectize-dropdown [data-selectable],
 .selectize-dropdown .option,
 .selectize-dropdown .optgroup-header,
