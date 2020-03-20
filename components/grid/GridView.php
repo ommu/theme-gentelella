@@ -10,12 +10,12 @@ namespace themes\gentelella\components\grid;
 /**
  * GridView for Backoffice Themes
  *
- * @author Putra Sudaryanto <putra@ommu.co>
+ * @author Putra Sudaryanto <putra@ommu.id>
  * @contact (+62)856-299-4114
- * @copyright Copyright (c) 2017 OMMU (www.ommu.co)
+ * @copyright Copyright (c) 2017 OMMU (www.ommu.id)
  * @created date 2 September 2017, 15:42 WIB
  * @modified date 2 May 2019 2019, 17.05 WIB
- * @link https://github.com/ommu/ommu
+ * @link https://github.com/ommu/theme-gentelella
  */
 class GridView extends \yiister\gentelella\widgets\grid\GridView
 {

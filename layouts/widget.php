@@ -14,6 +14,7 @@ use yii\helpers\Url;
 
 		<div class="x_panel">
 			<div class="x_title">
+                <h2><?php echo $title;?></h2>
 				<?php if($contentMenu && $this->params['menu']['content'])
 					echo \app\components\widgets\MenuContent::widget(['items' => $this->params['menu']['content']]);?>
 
