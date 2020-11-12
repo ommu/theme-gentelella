@@ -14,9 +14,13 @@ use yii\helpers\Url;
 
 		<div class="x_panel">
 			<div class="x_title">
-                <h2><?php echo $title;?></h2>
-				<?php if($contentMenu && $this->params['menu']['content'])
-					echo \app\components\widgets\MenuContent::widget(['items' => $this->params['menu']['content']]);?>
+                <?php if ($title) {?>
+                    <h2><?php echo $title;?></h2>
+                <?php }
+                
+                if ($contentMenu && $this->params['menu']['content']) {
+					echo \app\components\widgets\MenuContent::widget(['items' => $this->params['menu']['content']]);
+                }?>
 
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a href="#" title="<?php echo Yii::t('app', 'Toggle');?>" class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>

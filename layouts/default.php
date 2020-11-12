@@ -29,9 +29,9 @@ $js = <<<JS
 	const themeAssetUrl = '{$themeAsset->baseUrl}';
 	const version = '1';
 if ('serviceWorker' in navigator) {
-	window.addEventListener('load', function() {
-		navigator.serviceWorker.register(baseUrl + '/service-worker.js?v='+version+'&bu='+baseUrl+'&tu='+themeAssetUrl);
-	});
+    window.addEventListener('load', function() {
+        navigator.serviceWorker.register(baseUrl + '/service-worker.js?v='+version+'&bu='+baseUrl+'&tu='+themeAssetUrl);
+    });
 }
 JS;
 $this->registerJs($js, $this::POS_HEAD); ?>

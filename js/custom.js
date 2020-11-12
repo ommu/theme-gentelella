@@ -82,8 +82,9 @@ function submitModal() {
 					location.href = redirect;
 			}
 		}
-		if(submit == false)
-			$.ajax(url, options);
+        if(submit == false)
+            $.ajax(url, options);
+        event.preventDefault();
 	});
 }
 
@@ -98,7 +99,7 @@ $(document).ready(function () {
 		event.preventDefault();
 		loadingShow();
 		var link = $(this).attr('href');
-		$('#defaultModal .modal-content').load(link, function () {
+		$('#defaultModal .modal-content').load(link, function (event) {
 			loadingHide();
 			$('#defaultModal').modal({
 				show: true,
@@ -106,7 +107,7 @@ $(document).ready(function () {
 			submitModal();
 		});
 	});
-	$('#defaultModal').on('hidden.bs.modal', function (e) {
+	$('#defaultModal').on('hidden.bs.modal', function (event) {
 		$(this).find('.modal-content').html('');
 	});
 });
