@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	->label(false); ?>
 
 	<div>
-		<?php echo Html::submitButton(Yii::t('app', 'Login'), ['class' => 'btn btn-default submit mt-10 ml-15',
+		<?php echo Html::submitButton(Yii::t('app', 'Login'), ['class' => 'btn btn-default submit mt-4',
 			'name' => 'login-button']) ?>
 		<?php echo $form->field($model, 'rememberMe', ['options' => ['class'=>'reset_pass']])->checkbox([
 			'template' => "{input} {label}",

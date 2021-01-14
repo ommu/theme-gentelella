@@ -6,7 +6,8 @@ class CustomAsset extends \yii\web\AssetBundle
 	public $sourcePath = '@themes/gentelella';
 	
 	public $css = [
-		'css/custom.css',
+		'css/bootstrap4-min.css',
+		'css/custom-min.css',
 	];
 
 	public $js = [
@@ -23,6 +24,8 @@ class CustomAsset extends \yii\web\AssetBundle
 			'assets/',
 			'components/',
 			'layouts/',
+			'module/',
+			'site/',
 		],
 	];
 
