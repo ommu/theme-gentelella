@@ -150,6 +150,9 @@ img {
 .grid-view table {
 	background: #fff;
 }
+.grid-view div.dataTable {
+    overflow-x: scroll;
+}
 
 /* Filter */
 .grid-view table tr.filters {}

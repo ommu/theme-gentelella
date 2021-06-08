@@ -13,6 +13,7 @@ use yii\helpers\Url;
 		<?php echo \app\components\widgets\Alert::widget(['closeButton'=>false]); ?>
 
 		<div class="x_panel">
+            <?php if ($title || $contentMenu) {?>
 			<div class="x_title">
                 <?php if ($title) {?>
                     <h2><?php echo $title;?></h2>
@@ -34,6 +35,7 @@ use yii\helpers\Url;
 				</ul>
 				<div class="clearfix"></div>
 			</div>
+            <?php }?>
 			<div class="x_content">
 				<?php echo $content; ?>
 			</div>

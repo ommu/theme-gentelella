@@ -36,10 +36,11 @@ function initHintBlocks() {
 // submit modal function
 function submitModal() {
 	var submit = false;
-	$('#defaultModal form').on('submit', function(event) {
+	$('#defaultModal form:not("[onpost]")').on('submit', function(event) {
 		var onPost = $(this).attr('onpost');
-		if(typeof(onPost) == 'undefined')
+		if(typeof(onPost) == 'undefined') {
 			event.preventDefault();
+        }
 		var url = $(this).attr('action');
 		var options = {
 			type: 'POST',

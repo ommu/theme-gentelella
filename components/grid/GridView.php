@@ -22,7 +22,7 @@ class GridView extends \yiister\gentelella\widgets\grid\GridView
 	/**
 	 * {@inheritdoc}
 	 */
-	public $layout = '{items}<div class="row"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
+	public $layout = '<div class="dataTable">{items}</div><div class="row"><div class="col-sm-5">{summary}</div><div class="col-sm-7">{pager}</div></div>';
 
 	/**
 	 * {@inheritdoc}
