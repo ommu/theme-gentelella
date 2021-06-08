@@ -7,7 +7,15 @@
 ?>
 
 <?php /* @var $this Controller */ ?>
-<?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
+<?php 
+$context = $this->context;
+if ($context->hasMethod('isVisitorBanned')) {
+    if ($context->isVisitorBanned() === true) {
+        throw new \yii\web\ForbiddenHttpException(Yii::t('app', 'You are not allowed to access this page.'));
+    }
+}
+
+$this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
 
 <div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12">
