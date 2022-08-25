@@ -1,6 +1,8 @@
 var CURRENT_URL = window.location.href.split('#')[0].split('?')[0],
-	$SIDEBAR_MENU = $('#sidebar-menu')
+	$SIDEBAR_MENU = $('#sidebar-menu'),
 	HINT_TOOLTIP = $('form.hint-tooltip');
+
+const EventBus = new EventEmitter();
 
 /* loading function */
 function loadingShow() {
@@ -89,6 +91,35 @@ function submitModal() {
 	});
 }
 
+function submiBroadcastModal() {
+	var submit = false;
+	$('#modalBroadcast form:not("[onpost]")').on('submit', function(event) {
+		var onPost = $(this).attr('onpost');
+		if(typeof(onPost) == 'undefined') {
+			event.preventDefault();
+        }
+		var url = $(this).attr('action');
+		var options = {
+			type: 'POST',
+			data: $(this).serialize(),
+			dataType: 'json',
+			beforeSend: function(jqXHR) {
+				submit = true;
+			},
+			success: function(response, textStatus, jqXHR) {
+				submit = false;
+			},
+			complete: function(jqXHR, textStatus) {
+				submit = false; 
+			}
+		}
+        $('#modalBroadcast .modal-content').find('.log-content').show();
+        if(submit == false)
+            $.ajax(url, options);
+        event.preventDefault();
+    });
+}
+
 $(document).ready(function () {
 	$SIDEBAR_MENU.find('li').removeClass('current-page');
 
@@ -111,4 +142,33 @@ $(document).ready(function () {
 	$('#defaultModal').on('hidden.bs.modal', function (event) {
 		$(this).find('.modal-content').html('');
 	});
+
+	/* dialog load */
+	$(document).on('click', '.modal-btn[data-target="modalBroadcast"]', function (event) {
+		event.preventDefault();
+		loadingShow();
+		let link = $(this).attr('href');
+        EventBus.emitEvent('runCommand', [{link: link, el: event.currentTarget}]);
+	});
+	$('#modalBroadcast').on('hidden.bs.modal', function (event) {
+		$(this).find('.modal-header h5.modal-title').html('');
+        EventBus.emitEvent('clearLog', [{el: event.currentTarget}]);
+	});
+});
+
+EventBus.addListener('runCommand', function(args) {
+    let link = args.link;
+    $('#modalBroadcast .modal-content').load(link, function (event) {
+        loadingHide();
+        $('#modalBroadcast').modal({
+            show: true,
+        });
+        $(this).find('.log-content').hide();
+        submiBroadcastModal();
+    });
+});
+
+EventBus.addListener('clearLog', function(args) {
+    let el = args.el;
+    $(el).find('.log-content pre.preformat').html('')
 });

@@ -9,6 +9,7 @@ use themes\gentelella\components\Sidebars;
 use themes\gentelella\components\MenuTop;
 use themes\gentelella\components\MenuFooter;
 
+\themes\gentelella\assets\EventEmitterAsset::register($this);
 $themeAsset = \themes\gentelella\assets\CustomAsset::register($this);
 
 $this->beginPage();?>
@@ -52,6 +53,14 @@ $this->registerJs($js, $this::POS_HEAD); ?>
 			</div>
 		</div>
 	</div>
+
+    <div class="modal fade" id="modalBroadcast" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                loading...
+            </div>
+        </div>
+    </div>
 
 	<?php $this->beginBody();?>
 	<div class="container body">
