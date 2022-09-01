@@ -37,7 +37,7 @@ foreach ($menus as $i => $group) {
 
 <?php $this->beginContent('@themes/gentelella/layouts/admin_default.php'); ?>
 
-<div class="flex-container">
+<div class="row">
     <div class="col-md-2 col-sm-3 col-xs-12">
         <?php foreach ($menus as $group) {?>
         <div class="list-group">
