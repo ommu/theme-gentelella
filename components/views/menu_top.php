@@ -2,6 +2,14 @@
 /* top navigation */
 
 use yii\helpers\Url;
+use app\modules\user\models\Users;
+
+$displayname = '';
+$photos = join('/', [Users::getUploadPath(false), 'default.png']);
+if (!Yii::$app->user->isGuest) {
+    $displayname = Yii::$app->user->identity->displayname;
+    $photos = Yii::$app->user->identity->photos;
+}
 ?>
 
 <div class="top_nav">
@@ -13,25 +21,21 @@ use yii\helpers\Url;
 			<ul class="nav navbar-nav navbar-right">
 				<li class="">
 					<a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-						<img src="http://placehold.it/128x128" alt=""><?= (!Yii::$app->user->isGuest? Yii::$app->user->identity->displayname: '') ?>
+						<img src="<?php echo Url::to(join('/', ['@webpublic', $photos]));?>" alt=""><?php echo $displayname;?>
 						<span class=" fa fa-angle-down"></span>
 					</a>
 					<ul class="dropdown-menu dropdown-usermenu pull-right">
-						<?php /*
-						<li><a href="javascript:;">Profile</a></li>
+						<!-- <li><a href="javascript:;">Profile</a></li>
 						<li><a href="<?php echo Url::to(['/admin/setting/index']); ?>"><span>Settings</span></a></li>
-						<li><a href="javascript:;">Help</a></li>
-						*/?>
+						<li><a href="javascript:;">Help</a></li> -->
 						<li><a href="<?php echo Url::to(['/site/logout']);?>"><i class="fa fa-sign-out pull-right"></i> <?php echo Yii::t('app', 'Log Out');?></a></li>
 					</ul>
 				</li>
 				<li role="presentation" class="dropdown">
-					<?php /*
-					<a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
+					<!-- <a href="javascript:;" class="dropdown-toggle info-number" data-toggle="dropdown" aria-expanded="false">
 						<i class="fa fa-envelope-o"></i>
 						<span class="badge bg-green">6</span>
-					</a>
-					*/?>
+					</a> -->
 					<ul id="menu1" class="dropdown-menu list-unstyled msg_list" role="menu">
 						<li>
 							<a>

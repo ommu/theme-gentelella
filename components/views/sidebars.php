@@ -5,6 +5,14 @@ use yii\helpers\ArrayHelper;
 use app\modules\rbac\components\MenuHelper;
 use themes\gentelella\components\SidebarMenu;
 use themes\gentelella\components\SidebarSetting;
+use app\modules\user\models\Users;
+
+$displayname = '';
+$photos = join('/', [Users::getUploadPath(false), 'default.png']);
+if (!Yii::$app->user->isGuest) {
+    $displayname = Yii::$app->user->identity->displayname;
+    $photos = Yii::$app->user->identity->photos;
+}
 
 ?>
 <?php /* sidebar navigation */?>
@@ -19,11 +27,11 @@ use themes\gentelella\components\SidebarSetting;
 		<?php /* menu prile quick info */?>
 		<div class="profile clearfix">
 			<div class="profile_pic">
-				<img src="http://placehold.it/128x128" alt="..." class="img-circle profile_img">
+				<img src="<?php echo Url::to(join('/', ['@webpublic', $photos]));?>" alt="<?php echo $displayname; ?>" class="img-circle profile_img">
 			</div>
 			<div class="profile_info">
 				<span>Welcome,</span>
-				<h2><?= (!Yii::$app->user->isGuest? Yii::$app->user->identity->displayname: '') ?></h2>
+				<h2><?php echo $displayname; ?></h2>
 			</div>
 		</div>
 		<?php /* end.menu prile quick info */?>
