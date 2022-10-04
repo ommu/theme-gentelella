@@ -5,6 +5,7 @@
 /* @var $content string */
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use app\components\widgets\MenuContent;
 use app\components\widgets\MenuOption;
 
@@ -21,15 +22,19 @@ foreach ($menus as $i => $group) {
     foreach ($group as $j => $menu) {
         foreach ($menu['url'] as $key => $val) {
             $part = explode('*', $val);
-            if(strpos($part[0], '$_GET') !== false)
+            if(strpos($part[0], '$_GET') !== false) {
                 $menus[$i][$j]['url'][$key] = $controller->subMenuParam ? $controller->subMenuParam : Yii::$app->request->get($part[1]);
+            }
         }
         if(isset($menu['select'])) {
-            if($menu['select'] == 'controller')
+            if($menu['select'] == 'controller') {
                 $menus[$i][$j]['active'] = strtolower($controller->id) == trim($menu['url'][0], '/') || preg_match('/^('.addcslashes(strtolower($controller->id), '/').')/', trim($menu['url'][0], '/'));
                 // $menus[$i][$j]['active'] = strtolower($controller->id) == str_replace('/'.$controller->action->id, '', trim($menu['url'][0], '/'));
-            else if($menu['select'] == 'action')
+            } else if($menu['select'] == 'action') {
                 $menus[$i][$j]['active'] = strtolower($controller->id.'/'.$controller->action->id) == trim($menu['url'][0], '/');
+            } else if($menu['select'] == 'url') {
+                $menus[$i][$j]['active'] = Url::current() == Url::to($menus[$i][$j]['url']);
+            }
         } else
             $menus[$i][$j]['active'] = strpos($route, trim($menu['url'][0], '/')) === 0;
     }
