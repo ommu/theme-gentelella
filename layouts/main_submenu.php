@@ -20,10 +20,23 @@ if (array_key_exists('label', $menus[$firstKeyMenu]) || array_key_exists('url', 
 
 foreach ($menus as $i => $group) {
     foreach ($group as $j => $menu) {
+        $backTo = false;
+        if (isset($menu['backTo']) && $menu['backTo'] == true) {
+            $backTo = true;
+        }
         foreach ($menu['url'] as $key => $val) {
             $part = explode('*', $val);
             if(strpos($part[0], '$_GET') !== false) {
-                $menus[$i][$j]['url'][$key] = $controller->subMenuParam ? $controller->subMenuParam : Yii::$app->request->get($part[1]);
+                if ($backTo == true) {
+                    $attrId = $controller->subMenuBackTo;
+                } else {
+                    if ($controller->subMenuParam) {
+                        $attrId = $controller->subMenuParam;
+                    } else {
+                        $attrId = Yii::$app->request->get($part[1]);
+                    }
+                }
+                $menus[$i][$j]['url'][$key] = $attrId;
             }
         }
         if(isset($menu['select'])) {
