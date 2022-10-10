@@ -153,6 +153,36 @@ img {
 .grid-view div.dataTable {
     overflow-x: scroll;
 }
+.grid-view table th,
+.grid-view table td {
+    padding: 1rem !important;
+    color: #444;
+}
+.grid-view table thead th {
+    padding-right: 3rem !important;
+}
+.grid-view table thead th *,
+.grid-view table thead td * {
+    color: #444;
+}
+.grid-view table tr.filters {
+    background: rgba(52,73,94,0.94);
+}
+.grid-view table tr.filters th,
+.grid-view table tr.filters td {
+    padding: 0.5rem 0.25rem !important;
+    border: none;
+}
+.grid-view table tr.filters td input,
+.grid-view table tr.filters td select {
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+.table-striped > tbody > tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05);
+}
+
 
 /* Filter */
 .grid-view table tr.filters {}
@@ -216,6 +246,7 @@ img {
 -------------------------------------------------------------- */
 table.detail-view th {
 	width: 200px !important;
+    color: #444;
 }
 
 /* =Alert
@@ -338,4 +369,10 @@ form.hint-tooltip .hint-block {
 	opacity: 0.5;
 	background: none;
 	padding: 0;
+}
+
+/* =Form
+-------------------------------------------------------------- */
+.form-horizontal .control-label {
+    color: #444;
 }
