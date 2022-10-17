@@ -19,16 +19,19 @@ use yii\helpers\Url;
                     <h2><?php echo $title;?></h2>
                 <?php }
                 
-                if ($contentMenu && $this->params['menu']['content']) {
-					echo \app\components\widgets\MenuContent::widget(['items' => $this->params['menu']['content']]);
+                $arrayMenuContent = $this->params['menu']['content'] ?? null;
+                if ($contentMenu && is_array($arrayMenuContent) && !empty($arrayMenuContent)) {
+					echo \app\components\widgets\MenuContent::widget(['items' => $arrayMenuContent]);
                 }?>
 
 				<ul class="nav navbar-right panel_toolbox">
 					<li><a href="#" title="<?php echo Yii::t('app', 'Toggle');?>" class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-					<?php if($contentMenu && $this->params['menu']['option']) {?>
+					<?php 
+                    $arrayMenuOption = $this->params['menu']['option'] ?? null;
+                    if($contentMenu && is_array($arrayMenuOption) && !empty($arrayMenuOption)) {?>
 					<li class="dropdown">
 						<a href="#" title="<?php echo Yii::t('app', 'Options');?>" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<?php echo \app\components\widgets\MenuOption::widget(['items' => $this->params['menu']['option']]);?>
+						<?php echo \app\components\widgets\MenuOption::widget(['items' => $arrayMenuOption]);?>
 					</li>
 					<?php }?>
 					<li><a href="#" title="<?php echo Yii::t('app', 'Close');?>" class="close-link"><i class="fa fa-close"></i></a></li>
