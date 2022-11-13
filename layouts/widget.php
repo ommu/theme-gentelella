@@ -10,7 +10,7 @@ use yii\helpers\Url;
 
 <div class="row">
 	<div class="col-md-12 col-sm-12 col-xs-12">
-		<?php echo \app\components\widgets\Alert::widget(['closeButton'=>false]); ?>
+		<?php echo $alert ? \app\components\widgets\Alert::widget(['closeButton'=>false]) : ''; ?>
 
 		<div class="x_panel">
             <?php if ($title || $contentMenu) {?>

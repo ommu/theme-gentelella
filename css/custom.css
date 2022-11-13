@@ -383,6 +383,11 @@ form.hint-tooltip .hint-block {
 .control-label.text-left {
 	text-align: left;
 }
+form div.required label.control-label:after {
+	font-weight: 400;
+    content: " *";
+    color: red;
+}
 
 .form-horizontal .control-label {
     color: #444;
